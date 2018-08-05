@@ -59,6 +59,8 @@ class App extends Component {
     const {searchTerm, list} = this.state;
     return (
       <div className="App">
+        <Search value={searchTerm} onChange={this.onSearchChange} />
+        <Table list={list} patterin={searchTerm} onDismiss={this.onDismiss} />
         <form>
           <input
             type="text"
