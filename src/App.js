@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 const DEFAULT_QUERY = 'ruby on rails';
@@ -9,9 +8,6 @@ const PATH_SEARCH = '/search';
 const PARAM_SEARCH = 'query=';
 
 // const url = `${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${DEFAULT_QUERY}`;
-
-const isSearched = searchTerm => item =>
-  item.title.toLowerCase ().includes (searchTerm.toLowerCase ());
 
 class App extends Component {
   // Constructor
