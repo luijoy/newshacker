@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import './App.css';
 
 const DEFAULT_QUERY = 'redux';
@@ -13,6 +14,7 @@ const PARAM_HPP = 'hitsPerPage=';
 // const url = `${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${DEFAULT_QUERY}`;
 
 class App extends Component {
+  _isMounted = false;
   // Constructor
   constructor (props) {
     super (props);
@@ -52,19 +54,25 @@ class App extends Component {
   }
 
   fetchSearchTopStores (searchTerm, page = 0) {
-    fetch (
+    axios (
       `${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchTerm}&${PARAM_PAGE}\
 ${page}&${PARAM_HPP}${DEFAULT_HPP}`
     )
-      .then (response => response.json ())
-      .then (result => this.setSearchTopStories (result))
-      .catch (error => this.setState ({error}));
+      .then (
+        result => this._isMounted && this.setSearchTopStories (result.data)
+      )
+      .catch (error => this._isMounted && this.setState ({error}));
   }
 
   componentDidMount () {
+    this._isMounted = true;
     const {searchTerm} = this.state;
     this.setState ({searchKey: searchTerm});
     this.fetchSearchTopStores (searchTerm);
+  }
+
+  componentWillUnmount () {
+    this._isMounted = false;
   }
 
   // App class methods
@@ -173,3 +181,5 @@ function Button({onClick, className = '', children}) {
 }
 
 export default App;
+
+export {Button, Search, Table};
