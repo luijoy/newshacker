@@ -61,4 +61,9 @@ describe ('Table', () => {
     let tree = component.toJSON ();
     expect (tree).toMatchSnapshot ();
   });
+
+  it ('shows two items in list', () => {
+    const element = shallow (<Table {...props} />);
+    expect (element.find ('.table-row').length).toBe (2);
+  });
 });
