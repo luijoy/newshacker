@@ -5,12 +5,17 @@ import './App.css';
 
 const DEFAULT_QUERY = 'redux';
 const DEFAULT_HPP = '100';
-
+// required to build search query
 const PATH_BASE = 'https://hn.algolia.com/api/v1';
 const PATH_SEARCH = '/search';
 const PARAM_SEARCH = 'query=';
 const PARAM_PAGE = 'page=';
 const PARAM_HPP = 'hitsPerPage=';
+// required to build comment link
+const PATH_BASE_HN = 'https://news.ycombinator.com/';
+const PATH_ITEM_ID = 'item?id=';
+
+const item_url = `${PATH_BASE_HN}${PATH_ITEM_ID}`;
 
 // const url = `${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${DEFAULT_QUERY}`;
 
@@ -159,7 +164,7 @@ const Table = ({list, pattern, onDismiss}) => (
           {item.author}
         </span>
         <span style={{width: '10%'}}>
-          {item.num_comments}
+          <a href={`${item_url}${item.objectID}`}>{item.num_comments}</a>
         </span>
         <span style={{width: '10%'}}>
           {item.points}
