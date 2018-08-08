@@ -158,9 +158,9 @@ const Table = ({list, pattern, onDismiss}) => (
     {list.map (item => (
       <div key={item.objectID} className="table-row">
         <span style={{width: '40%'}}>
-          <a href={item.url}>{item.title}</a>
+          <a class="url_title" href={item.url}>{item.title}</a>
         </span>
-        <span style={{width: '30%'}}>
+        <span style={{width: '10%'}}>
           {item.author}
         </span>
         <span style={{width: '10%'}}>
