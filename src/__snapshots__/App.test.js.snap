@@ -35,7 +35,10 @@ exports[`App has a valid snapshot 1`] = `
       className=""
       onClick={[Function]}
       type="button"
-    />
+    >
+       
+      More
+    </button>
   </div>
 </div>
 `;
@@ -45,7 +48,10 @@ exports[`Button has a valid snapshot 1`] = `
   className=""
   onClick={undefined}
   type="button"
-/>
+>
+   
+  Give Me More
+</button>
 `;
 
 exports[`Search has a valid snapshot 1`] = `
@@ -123,7 +129,10 @@ exports[`Table has a valid snapshot 1`] = `
         className="button-inline"
         onClick={[Function]}
         type="button"
-      />
+      >
+         
+        Dismiss
+      </button>
     </span>
   </div>
   <div
@@ -180,7 +189,10 @@ exports[`Table has a valid snapshot 1`] = `
         className="button-inline"
         onClick={[Function]}
         type="button"
-      />
+      >
+         
+        Dismiss
+      </button>
     </span>
   </div>
 </div>
