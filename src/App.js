@@ -157,17 +157,27 @@ const Table = ({list, pattern, onDismiss}) => (
   <div className="table">
     {list.map (item => (
       <div key={item.objectID} className="table-row">
-        <span style={{width: '40%'}}>
-          <a class="url_title" href={item.url}>{item.title}</a>
-        </span>
-        <span style={{width: '10%'}}>
-          {item.author}
-        </span>
-        <span style={{width: '10%'}}>
-          <a href={`${item_url}${item.objectID}`}>{item.num_comments}</a>
-        </span>
-        <span style={{width: '10%'}}>
+        <span id="points" style={{width: '4%'}}>
           {item.points}
+        </span>
+        <span style={{width: '80%'}}>
+          <a class="url_title" href={item.url}>{item.title}</a>
+          {' '}
+          <span id="comments">
+            |
+            {' '}
+            <a href={`${item_url}${item.objectID}`}>
+              {item.num_comments} comments
+            </a>
+            {' '}
+            |
+            {' '}
+            via {item.author}
+            {' '}
+            |
+            {' '}
+            {item.url}
+          </span>
         </span>
         <span style={{width: '10%'}}>
           <Button
