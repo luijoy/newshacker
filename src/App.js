@@ -176,7 +176,11 @@ const Table = ({list, pattern, onDismiss}) => (
             {' '}
             |
             {' '}
-            {item.url}
+            {
+              item.url
+                .split ('/')[item.url.indexOf ('://') > -1 ? 2 : 0]
+                .split (':')[0]
+            }
           </span>
         </span>
         <span style={{width: '10%'}}>
